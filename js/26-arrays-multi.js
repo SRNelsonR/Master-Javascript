@@ -3,6 +3,13 @@
 var categorias = ['Accion', 'Terror', 'Comedia'];
 var peliculas = ['La verdad duele', 'La vida es bella', 'Gran Torino'];
 
+// Ordenar
+// peliculas.sort();
+// Ordenar al reves
+peliculas.reverse();
+
+console.log(peliculas);
+
 var cine = [categorias, peliculas];
 
 // console.log(cine[0][1]);
@@ -29,4 +36,7 @@ if(indice > -1){
 
 var peliculas_string = peliculas.join();//Convertir arrray a string
 
-console.log(peliculas_string);
+var cadena = "texto1, texto2, texto3";
+var cadena_array = cadena.split(", ");
+
+console.log(cadena_array);

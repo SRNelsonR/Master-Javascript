@@ -27,11 +27,30 @@ document.write(lenguajes[2]); */
 document.write("<ul>");
 /* for(var i=0; i<lenguajes.length; i++){
     document.write("<li>" + lenguajes[i] + "</li>");
-} */
+}
 
 lenguajes.forEach((elemento, index, data) => {
     document.write("<li>" +index + " - " + elemento + "</li>");
     console.log(data);
-});
+});*/
+
+for(let lenguaje in lenguajes){
+    document.write("<li>" + lenguajes[lenguaje] + "</li>");
+}
 
 document.write("</ul>");
+
+// Busquedas
+// var busqueda = lenguajes.find(function(lenguaje){
+//     return lenguaje == "PHP"
+// });
+// Se resume en lo siguiente
+
+// Find y FindIndex
+// var busqueda = lenguajes.findIndex(lenguaje => lenguaje == "PHP");
+
+var precios = [10, 20, 50, 80, 12];
+// Buscar una condicion concreta de un numero
+var busqueda = precios.some(precio => precio >= 80);
+
+console.log(busqueda);
