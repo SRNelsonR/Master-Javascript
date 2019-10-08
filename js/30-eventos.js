@@ -22,6 +22,8 @@ window.addEventListener('load', ()=> {
     // Click
     boton.addEventListener('click', function(){
         cambiarColor();
+        this.style.border = "10px solid black";
+        console.log(this);
     });
 
     // Mouyse Over
