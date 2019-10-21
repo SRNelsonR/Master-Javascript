@@ -41,4 +41,18 @@ $(document).ready(function(){
         // $('.caja-efectos').toggle("shake", 4000);
         $('.caja-efectos').toggle("shake", {}, 4000);
     });
+
+    // Tooltip
+    $(document).tooltip();
+
+    // Dialog
+    $("#lanzar-popup").click(function(){
+        $("#popup").dialog();
+    });
+
+    // Datepicker
+    $("#calendario").datepicker();
+
+    // Tabs
+    $("#pestanas").tabs();
 });
