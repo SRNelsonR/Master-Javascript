@@ -1,2 +1,0 @@
-Pendiente de la modificacion de los archivo ts
-tsc -w *.ts

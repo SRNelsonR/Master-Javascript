@@ -1,0 +1,12 @@
+Para typescript
+Pendiente de la modificacion de los archivo ts
+tsc -w *.ts
+
+Instalacion de Angular
+    --Desinstalar Angular cli: npm uninstall -g @angular/cli
+    --Borrar cache de npm: npm cache verify
+    --Asegurarnos: npm cache clear o npm cache clear --force
+--Instalacion angular cli ultima version
+1.) npm install -g @angular/cli
+Generar nuevos proyectos de anular (Google: Angular cli)
+    ng new nombre-proyectos
