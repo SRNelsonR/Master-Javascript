@@ -330,6 +330,12 @@
 
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
+  <!-- <div [ngStyle]="{
+                        'background':config.fondo
+                        'padding': '20px'
+                        'border': '5px solid black'
+                        'border-color': config.color
+                      }"> -->
 
     <svg id="rocket" alt="Rocket Ship" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
       <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
@@ -348,13 +354,13 @@
     </svg>
 
   </div>
-  <p>Vamos a aprender Angular juntos</p>
-  <button (click)="ocultarVideojuegos(false)" *ngIf="mostrar_videojuegos">Ocultar</button>
+  <p>{{ desripcion }}</p>
+  <!-- <button (click)="ocultarVideojuegos(false)" *ngIf="mostrar_videojuegos">Ocultar</button>
   <button (click)="ocultarVideojuegos(true)" *ngIf="!mostrar_videojuegos">Mostrar</button>
   <videojuego *ngIf="mostrar_videojuegos"></videojuego>
   <zapatillas></zapatillas>
-  <cursos></cursos>
-
+  <cursos></cursos> -->
+  <zapatillas></zapatillas>
   <!-- Resources -->
   <h2>Resources</h2>
   <p>Here are some links to help you get started:</p>
