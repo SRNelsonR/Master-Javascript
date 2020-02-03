@@ -355,12 +355,23 @@
 
   </div>
   <p>{{ desripcion }}</p>
+
+  <nav>
+    <a [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a> &nbsp;
+    <a [routerLink]="['/zapatillas']" [routerLinkActive]="['active']">Zapatillas</a> &nbsp;
+    <a [routerLink]="['/cursos']" [routerLinkActive]="['active']">Cursos</a> &nbsp;
+    <a [routerLink]="['/videojuego']" [routerLinkActive]="['active']">Videojuego</a> &nbsp;
+  </nav>
+
   <!-- <button (click)="ocultarVideojuegos(false)" *ngIf="mostrar_videojuegos">Ocultar</button>
   <button (click)="ocultarVideojuegos(true)" *ngIf="!mostrar_videojuegos">Mostrar</button>
   <videojuego *ngIf="mostrar_videojuegos"></videojuego>
   <zapatillas></zapatillas>
   <cursos></cursos> -->
-  <zapatillas></zapatillas>
+  <!-- <zapatillas></zapatillas> -->
+
+  <router-outlet></router-outlet>
+
   <!-- Resources -->
   <h2>Resources</h2>
   <p>Here are some links to help you get started:</p>

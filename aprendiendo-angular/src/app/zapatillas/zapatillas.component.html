@@ -1,9 +1,20 @@
 <h2>{{ titulo }}</h2>
+
+<p>Añadir marca</p>
 <p>
-    Compra las zapatillas de las mejores marcas
+<!-- (blur)="onBlur()" -->
+<input type="text" [(ngModel)]="mi_marca" (keyup.enter)="mostrarPalabra()">
+<button (click)="getMarca()">Mostrar Marca</button>
+<button (click)="addMarca()">Añadir Marca</button>
 </p>
+<strong><p>{{mi_marca}}</p></strong>
+
+<p>Compra las zapatillas de las mejores marcas</p>
 <ul>
-    <li *ngFor="let marca of marcas; let indice = index">{{(indice+1) + '- ' +marca}}</li>
+    <li *ngFor="let marca of marcas; let indice = index">
+        {{(indice+1) + '- ' +marca}}
+        <button (click)="borrarMarca(indice)">Borrar</button>
+    </li>
 </ul>
 
 <p>Las deportivas que tenemos disponibles con:</p>
@@ -12,7 +23,16 @@
         <span [ngStyle]="{
             'text-decoration': !deportiva.stock ? 'line-through' : 'none'
         }">
-            {{deportiva.nombre}} - <strong>${{deportiva.precio}}</strong>
+            {{deportiva.nombre}} - 
+            <strong 
+                [class.altoPrecio]="deportiva.precio >= 80"
+                [ngClass]="{
+                    'fondoRojo': deportiva.precio > 100,
+                    'subrayado': deportiva.marca == 'Nike'
+                }"
+            >
+                ${{deportiva.precio}}
+            </strong>
         </span>
         <span *ngIf="deportiva.precio < 80" 
                 [style.background] = "deportiva.precio < 80 ? 'green':'transparent'"
@@ -22,6 +42,7 @@
 </ul>
 
 <p>El color de la mayoria de nuestras zapatillas es:</p>
+<input type="text" [(ngModel)]="color">
 <ul [ngSwitch]="color">
     <li *ngSwitchCase="'yellow'">
         El color predominante es el <span [ngStyle]="{'background': color}">amarillo</span>.
