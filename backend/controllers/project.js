@@ -1,6 +1,8 @@
 'use strict'
 
 var Project = require('../models/project');
+var fs = require('fs');
+var path = require('path');
 
 var controller = {
     home: function(req, res){
@@ -95,15 +97,48 @@ var controller = {
         var projectId = req.params.id;
         var fileName = 'Imagen no subida...';
         if(req.files){
+            // console.log(req.files.image.path);
+            var filePath = req.files.image.path;
+            var fileSplit = filePath.split("\\");
+            var fileNames = fileSplit[1];
+            var extSplit = fileNames.split('\.');
+            var fileExt = extSplit[1];
             // console.log(req.files);
-            return res.status(200).send({
-                files: req.files
-            });
+
+            if(fileExt == 'png' || fileExt == 'jpg' || fileExt == 'jpeg' || fileExt == 'gif'){
+                Project.findByIdAndUpdate(projectId, {image: fileNames}, {new:true}, (err, projectUpdated) => {
+                    if(err) return res.status(500).send({message: 'La imagen no se ha subido'});
+                    
+                    if(!projectUpdated) return res.status(404).send({message: 'El proyecto no existe y no se ha asignado la imagen'});
+    
+                    return res.status(200).send({
+                        project: projectUpdated
+                    });
+                });
+            } else {
+                fs.unlink(filePath, (err) => {
+                    return res.status(200).send({message: 'La extensión no es válida'});
+                });
+            }
         } else{
             return res.status(200).send({
                 message: fileName
             });
         }
+    },
+    getImageFile: function(req, res){
+        var file = req.params.image;
+        var path_file = './uploads/'+file;
+
+        fs.exists(path_file, (exists)=> {
+            if(exists){
+                return res.sendFile(path.resolve(path_file));
+            } else{
+                return res.status(200).send({
+                    message: "No existe la imagen..."
+                });
+            }
+        });
     }
 };
 
